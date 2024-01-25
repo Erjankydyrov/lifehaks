@@ -1,0 +1,26 @@
+section {
+  padding: 30px 40px;
+  height: 500px;
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  #container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+  }
+  #image {
+    transition: transform 0.1s ease-in-out;
+    width: 250px;
+    height: 250px;
+  }
+  .text {
+    width: 50%;
+  }
+}

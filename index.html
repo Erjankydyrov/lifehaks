@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="flex">
+        <div id="container">
+          <img
+            id="image"
+            src="https://www.rgo.ru/sites/default/files/node/73720/photo-2023-10-25-140017.jpeg"
+            alt="Rotating Image"
+          />
+        </div>
+        <div class="text">
+          <h2>Test</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam
+            fugit assumenda odio corrupti, aliquid consectetur debitis eaque
+            voluptas harum expedita dolor. Quasi aliquam soluta officia
+            explicabo recusandae omnis voluptatibus cumque?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const container = document.getElementById("container");
+      const image = document.getElementById("image");
+
+      container.addEventListener("mousemove", (e) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const centerX = left + width / 2;
+        const centerY = top + height / 2;
+
+        const deltaX = clientX - centerX;
+        const deltaY = clientY - centerY;
+
+        const rotateX = deltaY / 5; // Регулируйте скорость вращения по оси X
+        const rotateY = -deltaX / 5; // Регулируйте скорость вращения по оси Y
+        const rotateZ = 0; // Угол вращения по оси Z (в данном случае 0)
+
+        image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
+      });
+
+      container.addEventListener("mouseleave", () => {
+        // Сброс поворота при уходе мыши
+        image.style.transform = "rotateX(0deg) rotateY(0deg) rotateZ(0deg)";
+      });
+    </script>
+  </body>
+</html>
